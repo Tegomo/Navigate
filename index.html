@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/libs/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/materialize.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <title>NSUL LAM</title>
+  <style>
+    #map {
+      width: 100%;
+      height: 90%;
+    }
+
+    .modal {
+      max-height: 90%;
+    }
+
+    .modal-form-row {
+      margin-bottom: 0px;
+    }
+  </style>
+  <script>
+
+    var depart = {latitude:"", longitude:""};
+    var destination = {latitude:"", longitude:""};
+
+  </script>
+</head>
+
+<body ng-app="sampleApp">
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center">NSUL LAAM</a>
+      <ul class="left hide-on-med-and-down">
+      </ul>
+    </div>
+  </nav>
+
+  <div ng-view></div>
+
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a href="#" class="btn-floating red  darken-1"><i class="material-icons">directions_walk</i></a></li>
+      <li><a href="#" class="btn-floating green " ><i class="material-icons">add_location</i></a></li>
+      <li><a  class="btn-floating yellow modal-trigger" data-target="modal1"><i class="material-icons">gps_fixed</i></a></li>
+      <li>
+        <a href="#/" class="btn-floating blue"><i class="material-icons">home</i></a>
+      </li>
+    </ul>
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <p>Entrez les coordonnés de votre destination</p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row modal-form-row">
+            <div class="input-field col s12">
+              <input id="latitudeDest" type="text" name="latitude" value="4.0566784" class="validate">
+              <label for="latitudeDest">Latitude</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="longitudeDest" type="text" name="longitude" value="9.7288192"  class="validate">
+              <label for="longitudeDest">Longitude</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a class=" modal-action modal-close waves-effect waves-green btn-flat valider"
+               href="#itineraire">Valider</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script type="text/javascript" src="js/libs/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/libs/materialize.min.js"></script>
+  <script>
+    function onLoad() {
+      document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {
+        console.log("navigator.geolocation works well");
+      }
+    }
+
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Auswahl</title>
+	
+<script type="text/javascript" src="cordova.js"></script>
+  </head>
+  <body>
+  <div>
+      <button onclick="standort();">Ma localisation</button></br>
+	  <button onclick="ziel();">Destination</button> </br>
+      <button onclick="route();">Calculer ma trajectoire</button></br>
+        <textarea cols="40" rows="40">
+
+        </textarea>
+  </div>
+  <script type="text/javascript">
+      document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {
+            // Now safe to use the PhoneGap API
+      }
+      function standort(){
+          window.location.href='standort.html';
+      }
+      function ziel(){
+          window.location.href='ziel.html';
+      }
+      function route(){
+          window.location.href='routing.html';
+      }
+  </script>
+  </body>
+</html>
